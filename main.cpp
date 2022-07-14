@@ -1,25 +1,9 @@
-#include "SFML/Graphics.hpp"
+#include "Application.hpp"
 
 int main()
 {
-    // Create window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML try");
+    Pong::Application app("Pong", 800, 600);
+    app.run();
 
-    while (window.isOpen())
-    {
-        // SFML Event
-        sf::Event event;
-
-        while (window.pollEvent(event))
-        {
-            // Allow close window
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        // Update the window
-        window.display();
-    }
-
-    return 0;
+    return EXIT_SUCCESS;
 }
