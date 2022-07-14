@@ -15,7 +15,7 @@ namespace Pong
     private:
         // Application Enviroment
         std::string m_title;
-        sf::Vector2i m_screenSize;
+        sf::Vector2u m_screenSize;
         Pong::GameManager m_game;
     };
 }
