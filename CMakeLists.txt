@@ -10,6 +10,7 @@ include(CPack)
 
 # Include Directory
 include_directories(./vendor/sfml/include)
+include_directories(./vendor/UnknownRori/include)
 include_directories(./include)
 
 # SFML Library
