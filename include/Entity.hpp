@@ -13,6 +13,9 @@ namespace Pong
         virtual void update(sf::Vector2f &screen_size);
         virtual void isCollide(Entity &entity);
         virtual void collideEvent();
+
+        const sf::Vector2f getSize();
+        const sf::Vector2f getPos();
     };
 }
 
