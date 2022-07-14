@@ -1,31 +1,53 @@
 #ifndef GAME_MANAGER_HPP
 #define GAME_MANAGER_HPP
 
-#include <vector>
+#include <array>
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
+#include "Score.hpp"
 
 namespace Pong
 {
     class GameManager
     {
-    public:
-        GameManager();
-        ~GameManager();
-        void init(std::string &title, sf::Vector2u &screenSize);
+        private:
+            // SFML Event Poll
+            sf::Event m_event;
 
-    private:
-        void loop();
-        void eventPollHandler();
-        void screenUpdateHandler();
-        void updateHandler();
-        void reset();
+            // SFML Window
+            sf::RenderWindow m_window;
 
-        // Game Resource
-        bool m_reset = false;
-        sf::Event m_event;
-        sf::RenderWindow m_window;
-        std::vector<Pong::Entity> m_entityPoll;
+            // This is where to store the entity
+            std::array<Pong::Entity, 3> m_entityPoll;
+
+            // This is where to store the score
+            Pong::Score score;
+
+        public:
+            // ¯\_(ツ)_/¯
+            GameManager();
+
+            // Do some housekeeping
+            ~GameManager();
+
+            // Initialize the window
+            void init(std::string &title, sf::Vector2u &screenSize);
+
+        private:
+            // Main Game loop
+            void loop();
+
+            // This is where to define the control
+            void eventPollHandler();
+
+            // This is where to draw the entity
+            void screenUpdateHandler(Pong::Entity &entity);
+
+            // This is where to run update method on entity
+            void updateHandler(Pong::Entity &entity);
+
+            // This is for reseting the game
+            void reset();
     };
 }
 

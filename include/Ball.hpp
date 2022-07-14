@@ -9,14 +9,16 @@ namespace Pong
 {
     class Ball : public Entity
     {
-    public:
-        Ball(sf::Vector2f startingPos);
-        ~Ball();
-
     private:
         sf::Vector2f m_reset_pos;
-        sf::RectangleShape m_hitbox;
         sf::CircleShape m_shape;
+
+    public:
+        // Create ball entity with given starting position
+        Ball(sf::Vector2f startingPos);
+
+        // Do some housekeeping
+        ~Ball();
     };
 }
 

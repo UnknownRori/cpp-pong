@@ -3,6 +3,10 @@
 
 namespace Pong
 {
+    /**
+     * @brief Some enum for helping the bounce thingy for the ball
+     *
+     */
     enum Position
     {
         LEFT = -1,

@@ -5,17 +5,29 @@
 
 namespace Pong
 {
+    /**
+     * @brief Base entity
+     *
+     */
     class Entity
     {
     public:
+        // ¯\_(ツ)_/¯
         Entity();
+
+        // ¯\_(ツ)_/¯
         virtual ~Entity();
+
+        // Do some update stuff
         virtual void update(sf::Vector2f &screen_size);
-        virtual void isCollide(Entity &entity);
+
+        // Check if the thing is collide or not
+        virtual bool isCollide(Entity &entity);
+
+        // Logic for the collide stuff
         virtual void collideEvent();
 
-        const sf::Vector2f getSize();
-        const sf::Vector2f getPos();
+        virtual void reset();
     };
 }
 
