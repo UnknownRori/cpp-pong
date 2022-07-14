@@ -10,6 +10,7 @@ include(CPack)
 
 # Include Directory
 include_directories(./vendor/sfml/include)
+include_directories(./include)
 
 # SFML Library
 find_library(SFML_SYSTEM libsfml-system.a ./vendor/sfml/lib)
@@ -19,5 +20,5 @@ find_library(SFML_GRAPHICS libsfml-graphics.a ./vendor/sfmllib)
 find_library(SFML_AUDIO libsfml-audio.a ./vendor/sfmllib)
 
 # Main Compilation
-add_executable(pong main.cpp)
+add_executable(pong main.cpp ./src/Application.cpp ./src/GameManager.cpp)
 target_link_libraries(pong ${SFML_MAIN} ${SFML_SYSTEM} ${SFML_WINDOW} ${SFML_GRAPHICS} ${SFML_AUDIO})
