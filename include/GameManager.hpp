@@ -10,11 +10,12 @@ namespace Pong
     class GameManager
     {
     public:
-        GameManager(std::string &title, std::size_t &width, std::size_t &height);
-        void start();
-        void loop();
+        GameManager();
+        ~GameManager();
+        void init(std::string &title, sf::Vector2u &screenSize);
 
     private:
+        void loop();
         void eventPollHandler();
         void screenUpdateHandler();
         void updateHandler();
@@ -23,7 +24,7 @@ namespace Pong
         // Game Resource
         bool m_reset = false;
         sf::Event m_event;
-        sf::WindowHandle m_window;
+        sf::RenderWindow m_window;
         std::vector<Pong::Entity> m_entityPoll;
     };
 }
