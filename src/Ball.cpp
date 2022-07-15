@@ -47,3 +47,10 @@ void Pong::Ball::setSize(float radius)
 {
     this->m_shape.setRadius(radius);
 }
+
+void Pong::Ball::collisionEvent()
+{
+    this->m_currentSpeed.y = rand() % 3 - 1;
+    Pong::bounce<float>(this->m_currentSpeed.y);
+    Pong::bounce<float>(this->m_currentSpeed.x);
+}

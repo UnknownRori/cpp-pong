@@ -72,3 +72,18 @@ void Pong::Paddle::setSize(const sf::Vector2f &newSize)
 {
     this->m_shape.setSize(newSize);
 }
+
+bool Pong::Paddle::collide(Pong::Ball &ball)
+{
+    // Ball
+    const auto ballSize = ball.getShape().getRadius();
+    const auto ballPosition = ball.getShape().getPosition();
+
+    // Paddle
+    const auto paddlePosition = this->m_shape.getPosition();
+    const auto paddleSize = this->m_shape.getSize();
+
+    // TODO Implement Collision Mechanic
+
+    return false;
+}

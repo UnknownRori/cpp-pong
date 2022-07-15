@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
 #include "Position.hpp"
+#include "Ball.hpp"
 
 namespace Pong
 {
@@ -34,6 +35,8 @@ namespace Pong
         void setPos(const sf::Vector2f &newPosition);
 
         void setSize(const sf::Vector2f &newSize);
+
+        bool collide(Pong::Ball &ball);
 
         // Get the paddle shape
         const sf::RectangleShape &getShape();
