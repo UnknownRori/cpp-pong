@@ -1,5 +1,5 @@
-#ifndef PADDLE_HPP
-#define PADDLE_HPP
+#ifndef BALL_HPP
+#define BALL_HPP
 
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"

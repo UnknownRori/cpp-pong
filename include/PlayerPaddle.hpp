@@ -1,5 +1,5 @@
-#ifndef Right_PADDLE_HPP
-#define Right_PADDLE_HPP
+#ifndef PLAYER_PADDLE_HPP
+#define PLAYER_PADDLE_HPP
 
 #include "SFML/Graphics.hpp"
 #include "Paddle.hpp"

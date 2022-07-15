@@ -1,5 +1,5 @@
-#ifndef LEFT_PADDLE_HPP
-#define LEFT_PADDLE_HPP
+#ifndef AI_PADDLE_HPP
+#define AI_PADDLE_HPP
 
 #include "SFML/Graphics.hpp"
 #include "Paddle.hpp"
