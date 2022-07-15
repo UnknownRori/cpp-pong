@@ -27,3 +27,13 @@ Pong::Entity::Entity()
 {
     __DEBUG("Entity Construction");
 }
+
+void Pong::Entity::move(const sf::Vector2f &moveOffset)
+{
+    __ERROR("Entity Move");
+}
+
+void Pong::Entity::setPos(const sf::Vector2f &moveOffset)
+{
+    __ERROR("Entity set new position")
+}
