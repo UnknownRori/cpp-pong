@@ -83,7 +83,11 @@ bool Pong::Paddle::collide(Pong::Ball &ball)
     const auto paddlePosition = this->m_shape.getPosition();
     const auto paddleSize = this->m_shape.getSize();
 
-    // TODO Implement Collision Mechanic
+    sf::Rect<float> paddleRect(paddlePosition, paddleSize);
+    sf::Rect<float> ballRect(ballPosition, sf::Vector2f(ballSize, ballSize));
+
+    if (paddleRect.intersects(ballRect))
+        ball.collisionEvent();
 
     return false;
 }
