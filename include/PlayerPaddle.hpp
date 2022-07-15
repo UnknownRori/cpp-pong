@@ -13,14 +13,16 @@ namespace Pong
     class PlayerPaddle : public Paddle
     {
     public:
-        bool isPlayer = false;
+        bool isPlayer = true;
 
     public:
-        // Create left paddle entity with given starting position
-        PlayerPaddle(sf::Vector2f startingPos);
+        // Create Playable paddle
+        PlayerPaddle();
 
         // Do some housekeeping
         ~PlayerPaddle();
+
+        void move(sf::Event &event);
     };
 }
 

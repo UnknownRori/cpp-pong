@@ -9,8 +9,10 @@ namespace Pong
 {
     class Ball : public Entity
     {
-    private:
+    public:
         sf::Vector2f m_reset_pos;
+
+    protected:
         sf::CircleShape m_shape;
 
     public:
@@ -19,6 +21,14 @@ namespace Pong
 
         // Do some housekeeping
         ~Ball();
+
+        void update(const sf::Vector2u &screenSize);
+
+        void reset();
+
+        void setPos(const sf::Vector2f &newPosition);
+
+        void setSize(const float radius);
 
         const sf::CircleShape &getShape();
     };

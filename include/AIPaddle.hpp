@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Paddle.hpp"
+#include "Ball.hpp"
 
 namespace Pong
 {
@@ -10,14 +11,16 @@ namespace Pong
      * @brief Special paddle that controlled by ai
      *
      */
-    class AIPlayer : public Paddle
+    class AIPaddle : public Paddle
     {
     public:
-        // Create left paddle entity with given starting position
-        AIPlayer(sf::Vector2f startingPos);
+        // Create special paddle
+        AIPaddle();
 
         // Do some housekeeping
-        ~AIPlayer();
+        ~AIPaddle();
+
+        void move(Pong::Ball &ball);
     };
 }
 

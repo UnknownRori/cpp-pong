@@ -1,3 +1,4 @@
+#include "Log.hpp"
 #include "Paddle.hpp"
 
 /**
@@ -11,7 +12,11 @@ Pong::Paddle::~Paddle() {}
  *
  * @param startingPos
  */
-Pong::Paddle::Paddle() {}
+Pong::Paddle::Paddle()
+{
+    this->m_shape.setOutlineColor(sf::Color::White);
+    this->m_shape.setSize(sf::Vector2f(20, 100));
+}
 
 /**
  * @brief Get the position of the paddle
@@ -48,9 +53,9 @@ const sf::RectangleShape &Pong::Paddle::getShape()
  *
  * @param moveOffset
  */
-void Pong::Paddle::move(const sf::Vector2f &moveOffset)
+void Pong::Paddle::move()
 {
-    this->m_shape.move(moveOffset);
+    __DEBUG("Paddle Move");
 }
 
 /**
@@ -61,4 +66,9 @@ void Pong::Paddle::move(const sf::Vector2f &moveOffset)
 void Pong::Paddle::setPos(const sf::Vector2f &newPosition)
 {
     this->m_shape.setPosition(newPosition);
+}
+
+void Pong::Paddle::setSize(const sf::Vector2f &newSize)
+{
+    this->m_shape.setSize(newSize);
 }

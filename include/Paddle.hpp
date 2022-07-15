@@ -22,17 +22,18 @@ namespace Pong
         // Do some housekeeping
         virtual ~Paddle();
 
+        virtual void move();
+
         // Get the Entity Size
         const sf::Vector2f getSize();
 
         // Get the current Entity position
         const sf::Vector2f getPos();
 
-        // Move the entity to using passed offset
-        void move(const sf::Vector2f &moveOffset);
-
         // Set the paddle into new position
         void setPos(const sf::Vector2f &newPosition);
+
+        void setSize(const sf::Vector2f &newSize);
 
         // Get the paddle shape
         const sf::RectangleShape &getShape();
