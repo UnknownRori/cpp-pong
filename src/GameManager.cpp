@@ -35,7 +35,7 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
     this->m_player.setSize(paddleSize);
     this->m_AI.setSize(paddleSize);
 
-    this->m_window.setFramerateLimit(60);
+    this->m_window.setFramerateLimit(5);
     this->m_window.create(sf::VideoMode(screenSize.x, screenSize.y), title);
 
     this->loop();
