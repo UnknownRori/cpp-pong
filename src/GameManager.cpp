@@ -26,9 +26,11 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
     __LOG("GameManager init");
 
     sf::Vector2f paddleSize = sf::Vector2f((screenSize.x / 20), (screenSize.y / 4.5));
+    sf::Vector2f ballPosition = sf::Vector2f((screenSize.x / 2.6), (screenSize.y / 2.6));
 
     this->m_ball.setSize(screenSize.y / 50);
-    this->m_ball.setPos(sf::Vector2f((screenSize.x / 2.6), (screenSize.y / 2.6)));
+    this->m_ball.setPos(ballPosition);
+    this->m_ball.m_reset_pos = ballPosition;
 
     this->m_player.setPos(sf::Vector2f(10, (screenSize.y / 2.8)));
     this->m_AI.setPos(sf::Vector2f((screenSize.x - (10 + paddleSize.x)), (screenSize.y / 2.8)));

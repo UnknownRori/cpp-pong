@@ -13,6 +13,8 @@ namespace Pong
         sf::Vector2f m_reset_pos;
 
     protected:
+        sf::Vector2f m_currentSpeed = sf::Vector2f(-0.25, 0);
+        sf::Vector2f m_baseSpeed = sf::Vector2f(-0.25, 0);
         sf::CircleShape m_shape;
 
     public:
@@ -30,7 +32,9 @@ namespace Pong
 
         void setSize(const float radius);
 
-        const sf::CircleShape &getShape();
+        void collisionEvent();
+
+        const sf::CircleShape &getShape() const;
     };
 }
 
