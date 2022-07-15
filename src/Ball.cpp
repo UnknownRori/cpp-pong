@@ -13,7 +13,7 @@ Pong::Ball::~Ball() {}
  * @brief Get the ball shape
  *
  */
-const sf::CircleShape &Pong::Ball::getShape()
+const sf::CircleShape &Pong::Ball::getShape() const
 {
     return this->m_shape;
 }
