@@ -3,12 +3,12 @@
 
 void Pong::Entity::update(const sf::Vector2u &screenSize)
 {
-    __DEBUG("Entity Update Event");
+    // __DEBUG("Entity Update Event");
 }
 
 void Pong::Entity::reset()
 {
-    __DEBUG("Entity Reset");
+    // __DEBUG("Entity Reset");
 }
 
 Pong::Entity::~Entity()
