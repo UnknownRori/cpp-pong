@@ -1,7 +1,7 @@
 #ifndef GAME_MANAGER_HPP
 #define GAME_MANAGER_HPP
 
-#include <array>
+#include "SFML/Audio.hpp"
 #include "SFML/Graphics.hpp"
 #include "Ball.hpp"
 #include "PlayerPaddle.hpp"
@@ -15,6 +15,8 @@ namespace Pong
     private:
         // SFML Event Poll
         sf::Event m_event;
+
+        // SFML Sound
 
         // SFML Window
         sf::RenderWindow m_window;
