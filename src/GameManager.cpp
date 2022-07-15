@@ -56,6 +56,7 @@ void Pong::GameManager::loop()
         {
             this->eventPollHandler();
         }
+        this->m_window.clear();
 
         this->screenUpdateHandler();
         this->updateHandler();
