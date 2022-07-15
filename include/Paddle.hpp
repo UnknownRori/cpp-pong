@@ -17,8 +17,7 @@ namespace Pong
         sf::RectangleShape m_shape;
 
     public:
-        // Create paddle entity with given starting position
-        Paddle(sf::Vector2f startingPos);
+        Paddle();
 
         // Do some housekeeping
         virtual ~Paddle();
@@ -29,8 +28,14 @@ namespace Pong
         // Get the current Entity position
         const sf::Vector2f getPos();
 
-        // Move the entity to new given position
-        void move(sf::Vector2f new_pos);
+        // Move the entity to using passed offset
+        void move(const sf::Vector2f &moveOffset);
+
+        // Set the paddle into new position
+        void setPos(const sf::Vector2f &newPosition);
+
+        // Get the paddle shape
+        const sf::RectangleShape &getShape();
     };
 }
 

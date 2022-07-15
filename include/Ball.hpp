@@ -14,11 +14,13 @@ namespace Pong
         sf::CircleShape m_shape;
 
     public:
-        // Create ball entity with given starting position
-        Ball(sf::Vector2f startingPos);
+        // Create ball entity
+        Ball();
 
         // Do some housekeeping
         ~Ball();
+
+        const sf::CircleShape &getShape();
     };
 }
 

@@ -28,6 +28,10 @@ namespace Pong
         virtual void collideEvent();
 
         virtual void reset();
+
+        virtual void setPos(const sf::Vector2f &newPosition);
+
+        virtual void move(const sf::Vector2f &moveOffset);
     };
 }
 
