@@ -1,5 +1,9 @@
 #include "Utility.hpp"
 #include "Ball.hpp"
+#include "Log.hpp"
+#include <chrono>
+#include <random>
+#include <random>
 
 // Todo Properly implement ball logic
 
@@ -50,7 +54,11 @@ void Pong::Ball::setSize(float radius)
 
 void Pong::Ball::collisionEvent()
 {
-    this->m_currentSpeed.y = rand() % 3 - 1;
-    Pong::bounce<float>(this->m_currentSpeed.y);
+    std::random_device rd;
+    std::mt19937 engine(rd());
+    std::uniform_real_distribution<float> dist(-0.65f, 0.65f);
+    auto random = dist(engine);
+    __DEBUG(random);
+    this->m_currentSpeed.y = random;
     Pong::bounce<float>(this->m_currentSpeed.x);
 }
