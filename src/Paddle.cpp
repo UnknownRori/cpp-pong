@@ -86,6 +86,6 @@ bool Pong::Paddle::collide(Pong::Ball &ball, sf::Sound &sound)
 
 void Pong::Paddle::move(const sf::Vector2u &screenSize, const sf::Vector2f &offset)
 {
-    if (screenSize.x > this->getPos().x + this->getSize().x && 0 < this->getPos().x)
+    if (screenSize.y > ((this->getPos().y + offset.y) + this->getSize().y) && 0 < (this->getPos().y + offset.y))
         this->m_shape.move(offset);
 }
