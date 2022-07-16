@@ -27,10 +27,16 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
     __LOG("GameManager init");
 
     if (!this->m_font.loadFromFile("./asset/font/Poppins-Bold.ttf"))
+    {
+        std::cout << "Failed to load font" << std::endl;
         this->~GameManager();
+    }
 
     if (!this->m_bounceSFX.loadFromFile("./asset/sound/bounce.wav"))
+    {
+        std::cout << "Failed to load bounce sfx" << std::endl;
         this->~GameManager();
+    }
 
     this->m_soundBuffer.setBuffer(this->m_bounceSFX);
 
