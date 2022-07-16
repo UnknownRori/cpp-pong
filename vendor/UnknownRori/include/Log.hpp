@@ -12,6 +12,8 @@
 #ifndef UNKNOWNRORI_LOG_HPP
 #define UNKNOWNRORI_LOG_HPP
 
+#ifdef UNKNOWNRORI_DEBUG_MODE
+
 #include <iostream>
 #include <cstring>
 
@@ -34,4 +36,12 @@
 #define __ERROR(message)                 \
     std::cout << "\e[1;41m[ERROR]\e[0m " \
               << "\e[1m(" << __LINE__ << ") | " << __FILENAME__ << " : " << message << "\e[0m" << std::endl;
+#else
+
+#define __ERROR(message)
+#define __DEBUG(message)
+#define __LOG(message)
+
+#endif
+
 #endif
