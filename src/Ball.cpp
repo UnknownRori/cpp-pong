@@ -62,3 +62,8 @@ void Pong::Ball::collisionEvent()
     this->m_currentSpeed.y = random;
     Pong::bounce<float>(this->m_currentSpeed.x);
 }
+
+const sf::Vector2f &Pong::Ball::getPos() const
+{
+    return this->m_shape.getPosition();
+}

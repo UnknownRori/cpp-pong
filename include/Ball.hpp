@@ -31,6 +31,8 @@ namespace Pong
 
         void setSize(const float radius);
 
+        const sf::Vector2f &getPos() const;
+
         void collisionEvent();
 
         const sf::CircleShape &getShape() const;
