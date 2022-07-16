@@ -58,7 +58,6 @@ void Pong::Ball::collisionEvent()
     std::mt19937 engine(rd());
     std::uniform_real_distribution<float> dist(-0.65f, 0.65f);
     auto random = dist(engine);
-    __DEBUG(random);
     this->m_currentSpeed.y = random;
     Pong::bounce<float>(this->m_currentSpeed.x);
 }
