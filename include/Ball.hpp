@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
+#include "Score.hpp"
 
 namespace Pong
 {
@@ -24,7 +25,7 @@ namespace Pong
         // Do some housekeeping
         ~Ball();
 
-        void update(const sf::Vector2u &screenSize);
+        void update(const sf::Vector2u &screenSize, Pong::Score &score);
 
         void reset();
 

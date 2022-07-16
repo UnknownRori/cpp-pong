@@ -33,7 +33,7 @@ void Pong::Ball::reset()
     this->m_shape.setPosition(this->m_reset_pos);
 }
 
-void Pong::Ball::update(const sf::Vector2u &screenSize)
+void Pong::Ball::update(const sf::Vector2u &screenSize, Pong::Score &score)
 {
     if (this->m_shape.getPosition().y > (screenSize.y - this->m_shape.getRadius()))
         Pong::bounce<float>(this->m_currentSpeed.y);
@@ -42,7 +42,14 @@ void Pong::Ball::update(const sf::Vector2u &screenSize)
         Pong::bounce<float>(this->m_currentSpeed.y);
 
     if (this->m_shape.getPosition().x < 1 || this->m_shape.getPosition().x > screenSize.x)
+    {
+        if (this->m_shape.getPosition().x < 1)
+            score.ai++;
+        else if (this->m_shape.getPosition().x > screenSize.x)
+            score.player++;
+
         this->reset();
+    }
 
     this->m_shape.move(this->m_currentSpeed);
 }

@@ -44,6 +44,16 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
     this->m_clockDisplay.setFillColor(sf::Color::White);
     this->m_clockDisplay.setFont(this->m_font);
 
+    this->m_playerScore.setPosition(sf::Vector2f(100, 0));
+    this->m_playerScore.setFillColor(sf::Color::White);
+    this->m_playerScore.setFont(this->m_font);
+    this->m_playerScore.setString("0");
+
+    this->m_aiScore.setPosition(sf::Vector2f(screenSize.x - 100, 0));
+    this->m_aiScore.setFillColor(sf::Color::White);
+    this->m_aiScore.setFont(this->m_font);
+    this->m_aiScore.setString("0");
+
     sf::Vector2f paddleSize = sf::Vector2f((screenSize.x / 20), (screenSize.y / 4.5));
     sf::Vector2f ballPosition = sf::Vector2f((screenSize.x / 2.6), (screenSize.y / 2.6));
 
@@ -105,12 +115,15 @@ void Pong::GameManager::eventPollHandler()
 
 void Pong::GameManager::updateHandler()
 {
-    this->m_ball.update(this->m_window.getSize());
+    this->m_ball.update(this->m_window.getSize(), this->m_score);
     this->m_AI.update(this->m_window.getSize(), this->m_ball);
     this->m_player.update(this->m_window.getSize(), this->m_event);
 
     this->m_AI.collide(this->m_ball, this->m_soundBuffer);
     this->m_player.collide(this->m_ball, this->m_soundBuffer);
+
+    this->m_playerScore.setString(std::to_string(this->m_score.player));
+    this->m_aiScore.setString(std::to_string(this->m_score.ai));
 }
 
 void Pong::GameManager::screenUpdateHandler()
@@ -119,4 +132,6 @@ void Pong::GameManager::screenUpdateHandler()
     this->m_window.draw(this->m_player.getShape());
     this->m_window.draw(this->m_AI.getShape());
     this->m_window.draw(this->m_clockDisplay);
+    this->m_window.draw(this->m_playerScore);
+    this->m_window.draw(this->m_aiScore);
 }

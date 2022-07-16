@@ -31,7 +31,7 @@ namespace Pong
         Pong::Ball m_ball;
 
         // This is where to store the score
-        Pong::Score score;
+        Pong::Score m_score;
 
         // Counter
         sf::Clock m_clock;
@@ -40,6 +40,8 @@ namespace Pong
         // Text
         sf::Font m_font;
         sf::Text m_clockDisplay;
+        sf::Text m_playerScore;
+        sf::Text m_aiScore;
 
     public:
         // ¯\_(ツ)_/¯
