@@ -63,7 +63,7 @@ void Pong::Paddle::setSize(const sf::Vector2f &newSize)
     this->m_shape.setSize(newSize);
 }
 
-bool Pong::Paddle::collide(Pong::Ball &ball)
+bool Pong::Paddle::collide(Pong::Ball &ball, sf::Sound &sound)
 {
     // Ball
     const auto ballSize = ball.getShape().getRadius();
@@ -77,8 +77,10 @@ bool Pong::Paddle::collide(Pong::Ball &ball)
     sf::Rect<float> ballRect(ballPosition, sf::Vector2f(ballSize, ballSize));
 
     if (paddleRect.intersects(ballRect))
+    {
         ball.collisionEvent();
-
+        sound.play();
+    }
     return false;
 }
 

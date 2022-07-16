@@ -2,6 +2,7 @@
 #define PADDLE_HPP
 
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include "Entity.hpp"
 #include "Ball.hpp"
 
@@ -33,7 +34,7 @@ namespace Pong
 
         void setSize(const sf::Vector2f &newSize);
 
-        bool collide(Pong::Ball &ball);
+        bool collide(Pong::Ball &ball, sf::Sound &sound);
 
         // Get the paddle shape
         const sf::RectangleShape &getShape();

@@ -12,11 +12,15 @@ namespace Pong
 {
     class GameManager
     {
+    public:
+        sf::Sound m_soundBuffer;
+
     private:
         // SFML Event Poll
         sf::Event m_event;
 
         // SFML Sound
+        sf::SoundBuffer m_bounceSFX;
 
         // SFML Window
         sf::RenderWindow m_window;

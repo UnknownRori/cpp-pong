@@ -25,6 +25,11 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
 {
     __LOG("GameManager init");
 
+    if (!this->m_bounceSFX.loadFromFile("./asset/sound/bounce.wav"))
+        this->~GameManager();
+
+    this->m_soundBuffer.setBuffer(this->m_bounceSFX);
+
     sf::Vector2f paddleSize = sf::Vector2f((screenSize.x / 20), (screenSize.y / 4.5));
     sf::Vector2f ballPosition = sf::Vector2f((screenSize.x / 2.6), (screenSize.y / 2.6));
 
@@ -84,8 +89,8 @@ void Pong::GameManager::updateHandler()
     this->m_AI.update(this->m_window.getSize(), this->m_ball);
     this->m_player.update(this->m_window.getSize(), this->m_event);
 
-    this->m_AI.collide(this->m_ball);
-    this->m_player.collide(this->m_ball);
+    this->m_AI.collide(this->m_ball, this->m_soundBuffer);
+    this->m_player.collide(this->m_ball, this->m_soundBuffer);
 }
 
 void Pong::GameManager::screenUpdateHandler()
