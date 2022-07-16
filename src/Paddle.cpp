@@ -49,16 +49,6 @@ const sf::RectangleShape &Pong::Paddle::getShape()
 }
 
 /**
- * @brief Move the paddle using passed offset vector
- *
- * @param moveOffset
- */
-void Pong::Paddle::move()
-{
-    __DEBUG("Paddle Move");
-}
-
-/**
  * @brief Set the Paddle into new position
  *
  * @param newPosition
@@ -90,4 +80,10 @@ bool Pong::Paddle::collide(Pong::Ball &ball)
         ball.collisionEvent();
 
     return false;
+}
+
+void Pong::Paddle::move(const sf::Vector2u &screenSize, const sf::Vector2f &offset)
+{
+    if (screenSize.x > this->getPos().x + this->getSize().x && 0 < this->getPos().x)
+        this->m_shape.move(offset);
 }

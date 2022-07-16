@@ -13,6 +13,7 @@ namespace Pong
         bool isPlayer = false;
 
     protected:
+        sf::Vector2f m_baseSpeed = sf::Vector2f(0.0f, 0.25f);
         sf::RectangleShape m_shape;
 
     public:
@@ -20,8 +21,6 @@ namespace Pong
 
         // Do some housekeeping
         virtual ~Paddle();
-
-        virtual void move();
 
         // Get the Entity Size
         const sf::Vector2f getSize();
@@ -38,6 +37,8 @@ namespace Pong
 
         // Get the paddle shape
         const sf::RectangleShape &getShape();
+
+        void move(const sf::Vector2u &screenSize, const sf::Vector2f &offset);
     };
 }
 
