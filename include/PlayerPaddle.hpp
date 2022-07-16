@@ -22,7 +22,7 @@ namespace Pong
         // Do some housekeeping
         ~PlayerPaddle();
 
-        void move(sf::Event &event);
+        void update(const sf::Vector2u &screenSize, const sf::Event &event);
     };
 }
 

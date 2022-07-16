@@ -4,3 +4,8 @@
 
 Pong::PlayerPaddle::PlayerPaddle() {}
 Pong::PlayerPaddle::~PlayerPaddle() {}
+
+void Pong::PlayerPaddle::update(const sf::Vector2u &screenSize, const sf::Event &event)
+{
+    //
+}

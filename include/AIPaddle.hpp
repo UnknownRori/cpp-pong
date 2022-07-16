@@ -20,7 +20,7 @@ namespace Pong
         // Do some housekeeping
         ~AIPaddle();
 
-        void move(Pong::Ball &ball);
+        void update(const sf::Vector2u &screenSize, const Pong::Ball &ball);
     };
 }
 

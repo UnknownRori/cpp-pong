@@ -81,8 +81,8 @@ void Pong::GameManager::eventPollHandler()
 void Pong::GameManager::updateHandler()
 {
     this->m_ball.update(this->m_window.getSize());
-    this->m_AI.update(this->m_window.getSize());
-    this->m_player.update(this->m_window.getSize());
+    this->m_AI.update(this->m_window.getSize(), this->m_ball);
+    this->m_player.update(this->m_window.getSize(), this->m_event);
 
     this->m_AI.collide(this->m_ball);
     this->m_player.collide(this->m_ball);
