@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Types.hpp"
 #include "Log.hpp"
 #include "GameManager.hpp"
 
@@ -25,10 +26,17 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
 {
     __LOG("GameManager init");
 
+    if (!this->m_font.loadFromFile("./asset/font/Poppins-Bold.ttf"))
+        this->~GameManager();
+
     if (!this->m_bounceSFX.loadFromFile("./asset/sound/bounce.wav"))
         this->~GameManager();
 
     this->m_soundBuffer.setBuffer(this->m_bounceSFX);
+
+    this->m_clockDisplay.setPosition(sf::Vector2f(screenSize.x / 2, 0));
+    this->m_clockDisplay.setFillColor(sf::Color::White);
+    this->m_clockDisplay.setFont(this->m_font);
 
     sf::Vector2f paddleSize = sf::Vector2f((screenSize.x / 20), (screenSize.y / 4.5));
     sf::Vector2f ballPosition = sf::Vector2f((screenSize.x / 2.6), (screenSize.y / 2.6));
@@ -55,12 +63,18 @@ void Pong::GameManager::init(std::string &title, sf::Vector2u &screenSize)
 void Pong::GameManager::loop()
 {
     __LOG("Start the loop");
+
+    this->m_clock.restart();
+
     while (this->m_window.isOpen())
     {
         while (this->m_window.pollEvent(this->m_event))
         {
             this->eventPollHandler();
         }
+        this->m_time = this->m_clock.getElapsedTime();
+        this->m_clockDisplay.setString(sf::String(std::to_string((i64)this->m_time.asSeconds())));
+
         this->m_window.clear();
 
         this->screenUpdateHandler();
@@ -98,4 +112,5 @@ void Pong::GameManager::screenUpdateHandler()
     this->m_window.draw(this->m_ball.getShape());
     this->m_window.draw(this->m_player.getShape());
     this->m_window.draw(this->m_AI.getShape());
+    this->m_window.draw(this->m_clockDisplay);
 }

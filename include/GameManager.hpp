@@ -33,6 +33,14 @@ namespace Pong
         // This is where to store the score
         Pong::Score score;
 
+        // Counter
+        sf::Clock m_clock;
+        sf::Time m_time;
+
+        // Text
+        sf::Font m_font;
+        sf::Text m_clockDisplay;
+
     public:
         // ¯\_(ツ)_/¯
         GameManager();
