@@ -3,7 +3,6 @@
 
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
-#include "Position.hpp"
 #include "Ball.hpp"
 
 namespace Pong
@@ -14,7 +13,6 @@ namespace Pong
         bool isPlayer = false;
 
     protected:
-        Pong::Position m_position = Pong::Position::NONE;
         sf::RectangleShape m_shape;
 
     public:

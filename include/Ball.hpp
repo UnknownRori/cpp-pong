@@ -3,7 +3,6 @@
 
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
-#include "Position.hpp"
 
 namespace Pong
 {
