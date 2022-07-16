@@ -10,6 +10,7 @@ namespace Pong
     {
     public:
         sf::Vector2f m_reset_pos;
+        bool m_isCurrentlyCollide = false;
 
     protected:
         sf::Vector2f m_currentSpeed = sf::Vector2f(-0.25, 0);

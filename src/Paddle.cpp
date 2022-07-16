@@ -76,11 +76,17 @@ bool Pong::Paddle::collide(Pong::Ball &ball, sf::Sound &sound)
     sf::Rect<float> paddleRect(paddlePosition, paddleSize);
     sf::Rect<float> ballRect(ballPosition, sf::Vector2f(ballSize, ballSize));
 
-    if (paddleRect.intersects(ballRect))
+    if (paddleRect.intersects(ballRect) && !ball.m_isCurrentlyCollide)
     {
+        ball.m_isCurrentlyCollide = true;
         ball.collisionEvent();
         sound.play();
     }
+    else if (!paddleRect.intersects(ballRect))
+    {
+        ball.m_isCurrentlyCollide = false;
+    }
+
     return false;
 }
 
