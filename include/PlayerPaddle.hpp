@@ -13,7 +13,7 @@ namespace Pong
     class PlayerPaddle : public Paddle
     {
     public:
-        bool isPlayer = true;
+        Pong::PaddlePosition m_position = Pong::PaddlePosition::LEFT;
 
     public:
         // Create Playable paddle
@@ -23,6 +23,8 @@ namespace Pong
         ~PlayerPaddle();
 
         void update(const sf::Vector2u &screenSize, const sf::Event &event);
+
+        void collide(Pong::Ball &ball, sf::Sound &sound);
     };
 }
 

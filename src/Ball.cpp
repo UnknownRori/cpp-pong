@@ -3,7 +3,6 @@
 #include "Log.hpp"
 #include <chrono>
 #include <random>
-#include <random>
 
 // Todo Properly implement ball logic
 
@@ -29,7 +28,7 @@ void Pong::Ball::setPos(const sf::Vector2f &newPosition)
 
 void Pong::Ball::reset()
 {
-    this->m_currentSpeed = this->m_baseSpeed;
+    this->m_currentSpeed = this->m_resetSpeed;
     this->m_shape.setPosition(this->m_reset_pos);
 }
 
@@ -59,14 +58,14 @@ void Pong::Ball::setSize(float radius)
     this->m_shape.setRadius(radius);
 }
 
-void Pong::Ball::collisionEvent()
+void Pong::Ball::collisionEvent(const Pong::PaddlePosition &pos)
 {
     std::random_device rd;
     std::mt19937 engine(rd());
     std::uniform_real_distribution<float> dist(-0.65f, 0.65f);
     auto random = dist(engine);
     this->m_currentSpeed.y = random;
-    Pong::bounce<float>(this->m_currentSpeed.x);
+    this->m_currentSpeed.x = pos * this->m_baseSpeed.x;
 }
 
 const sf::Vector2f &Pong::Ball::getPos() const

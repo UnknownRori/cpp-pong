@@ -14,6 +14,9 @@ namespace Pong
     class AIPaddle : public Paddle
     {
     public:
+        Pong::PaddlePosition m_position = Pong::PaddlePosition::RIGHT;
+
+    public:
         // Create special paddle
         AIPaddle();
 
@@ -21,6 +24,8 @@ namespace Pong
         ~AIPaddle();
 
         void update(const sf::Vector2u &screenSize, const Pong::Ball &ball);
+
+        void collide(Pong::Ball &ball, sf::Sound &sound);
     };
 }
 

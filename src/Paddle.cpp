@@ -63,32 +63,7 @@ void Pong::Paddle::setSize(const sf::Vector2f &newSize)
     this->m_shape.setSize(newSize);
 }
 
-bool Pong::Paddle::collide(Pong::Ball &ball, sf::Sound &sound)
-{
-    // Ball
-    const auto ballSize = ball.getShape().getRadius();
-    const auto ballPosition = ball.getShape().getPosition();
-
-    // Paddle
-    const auto paddlePosition = this->m_shape.getPosition();
-    const auto paddleSize = this->m_shape.getSize();
-
-    sf::Rect<float> paddleRect(paddlePosition, paddleSize);
-    sf::Rect<float> ballRect(ballPosition, sf::Vector2f(ballSize, ballSize));
-
-    if (paddleRect.intersects(ballRect) && !ball.m_isCurrentlyCollide)
-    {
-        ball.m_isCurrentlyCollide = true;
-        ball.collisionEvent();
-        sound.play();
-    }
-    else if (!paddleRect.intersects(ballRect))
-    {
-        ball.m_isCurrentlyCollide = false;
-    }
-
-    return false;
-}
+void Pong::Paddle::collide(Pong::Ball &ball, sf::Sound &sound) {}
 
 void Pong::Paddle::move(const sf::Vector2u &screenSize, const sf::Vector2f &offset)
 {

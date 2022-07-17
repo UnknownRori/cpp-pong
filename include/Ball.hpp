@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
 #include "Score.hpp"
+#include "PaddlePosition.hpp"
 
 namespace Pong
 {
@@ -15,7 +16,8 @@ namespace Pong
 
     protected:
         sf::Vector2f m_currentSpeed = sf::Vector2f(-0.25, 0);
-        sf::Vector2f m_baseSpeed = sf::Vector2f(-0.25, 0);
+        sf::Vector2f m_resetSpeed = sf::Vector2f(-0.25, 0);
+        sf::Vector2f m_baseSpeed = sf::Vector2f(0.25, 0);
         sf::CircleShape m_shape;
 
     public:
@@ -35,7 +37,7 @@ namespace Pong
 
         const sf::Vector2f &getPos() const;
 
-        void collisionEvent();
+        void collisionEvent(const Pong::PaddlePosition &pos);
 
         const sf::CircleShape &getShape() const;
     };

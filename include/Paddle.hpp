@@ -5,15 +5,14 @@
 #include "SFML/Audio.hpp"
 #include "Entity.hpp"
 #include "Ball.hpp"
+#include "PaddlePosition.hpp"
 
 namespace Pong
 {
     class Paddle : public Entity
     {
-    public:
-        bool isPlayer = false;
-
     protected:
+        Pong::PaddlePosition m_position;
         sf::Vector2f m_baseSpeed = sf::Vector2f(0.0f, 0.25f);
         sf::RectangleShape m_shape;
 
@@ -34,7 +33,7 @@ namespace Pong
 
         void setSize(const sf::Vector2f &newSize);
 
-        bool collide(Pong::Ball &ball, sf::Sound &sound);
+        virtual void collide(Pong::Ball &ball, sf::Sound &sound);
 
         // Get the paddle shape
         const sf::RectangleShape &getShape();
